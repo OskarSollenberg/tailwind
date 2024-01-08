@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import classNames from "classnames";
+import { useState } from "react";
+import { BsPlus, BsFillLightningFill } from "react-icons/bs";
+import { FaFire, FaPoo } from "react-icons/fa";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-gray-900 text-white shadow-lg">
+            <SideBarIcon icon={<FaFire size="28" />} />
+            <SideBarIcon icon={<BsPlus size="32" />} />
+            <SideBarIcon icon={<BsFillLightningFill size="20" />} />
+            <SideBarIcon icon={<FaPoo size="20" />} />
+        </div>
+    );
 }
+
+const SideBarIcon = ({ icon, text = "tooltip 💡" }) => {
+    return (
+        <>
+            <div className="sidebar-icon group">
+                {icon}
+
+                <span className="sidebar-tooltip group-hover:scale-100">
+                    {text}
+                </span>
+            </div>
+        </>
+    );
+};
 
 export default App;
